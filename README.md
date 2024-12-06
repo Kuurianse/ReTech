@@ -25,7 +25,7 @@ Agar aplikasi dapat terhubung ke database MySQL, tambahkan library **MySQL JDBC 
 ---
 
 ## 2. Pastikan JDK yang Digunakan adalah Versi Lengkap (Bukan JRE)  
-Pastikan Anda menggunakan **JDK** (Java Development Kit), bukan **JRE** (Java Runtime Environment), karena JRE tidak memiliki pustaka lengkap untuk pengembangan aplikasi.
+Pastikan Anda menggunakan **JDK** (Java Development Kit), bukan **JRE** (Java Runtime Environment), karena JRE tidak memiliki pustaka lengkap untuk pengembangan aplikasi. Jadi install terlebih dahulu jika belum ada. https://www.oracle.com/id/java/technologies/javase/jdk11-archive-downloads.html
 
 ### Langkah-langkah:  
 1. Klik kanan pada proyek Anda di Eclipse > **Properties**.  
