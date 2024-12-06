@@ -3,7 +3,7 @@
 
 Prompt 1: https://chatgpt.com/share/675298ef-4ca4-8013-8716-4d1dc649d142
 
-Prompt 2: [E-Commerce Application.pdf](https://github.com/user-attachments/files/18036290/E-Commerce.Application.pdf)
+Prompt 2 (lanjutan) : [E-Commerce Application.pdf](https://github.com/user-attachments/files/18036290/E-Commerce.Application.pdf)
 
 ## 1. Tambahkan Library JDBC ke Eclipse  
 Agar aplikasi dapat terhubung ke database MySQL, tambahkan library **MySQL JDBC Driver** ke proyek.
