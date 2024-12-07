@@ -25,7 +25,8 @@ public class ProductView {
                 System.out.println("ID: " + product.getId() +
                         " | Name: " + product.getName() +
                         " | Price: " + product.getPrice() +
-                        " | Stock: " + product.getStock());
+                        " | Stock: " + product.getStock() + 
+                        " | Category: " + product.getCategoryName());
             }
         }
     }
