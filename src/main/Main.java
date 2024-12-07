@@ -18,6 +18,7 @@ public class Main {
     
     public void customerMenu() {
     	while(true) {
+    		System.out.println("\n=== E-Commerce Menu ===");
             System.out.println("1. Logout");
             System.out.println("2. View All Products");
             System.out.println("3. View Products by Category");
@@ -63,6 +64,7 @@ public class Main {
     
     public void adminMenu() {
     	while(true) {
+    		System.out.println("\n=== E-Commerce Menu ===");
             System.out.println("1. Logout");
             System.out.println("2. View All Products");
             System.out.println("3. View Products by Category");
@@ -100,9 +102,8 @@ public class Main {
     
     public void mainMenu() {
     	while (true) {
-            System.out.println("\n=== E-Commerce Menu ===");
-
             if (currentUser == null) {
+            	System.out.println("\n=== E-Commerce Menu ===");
                 System.out.println("1. Login");
                 System.out.println("2. Register");
                 System.out.println("3. View All Products");
@@ -131,7 +132,7 @@ public class Main {
     				break;
     			}
             } else {
-                System.out.println("Welcome, " + currentUser.getName());
+//                System.out.println("Welcome, " + currentUser.getName());
                 if (currentUser.getRole().equals("customer")) {
                 	customerMenu();
                 } else {

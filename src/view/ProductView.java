@@ -79,6 +79,7 @@ public class ProductView {
                         " | Stock: " + product.getStock());
             }
         }
+        System.out.println("");
     }
 
 }
