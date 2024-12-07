@@ -1,5 +1,7 @@
 package model;
 
+import repository.CategoryRepository;
+
 public class Product {
     private int id;
     private String name;
@@ -33,6 +35,10 @@ public class Product {
         this.description = description;
         this.price = price;
         this.stock = stock;
+    }
+    
+    public String getCategoryName() {
+    	return CategoryRepository.findCategory(categoryId);
     }
 
     // Getters and Setters
