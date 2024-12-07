@@ -3,6 +3,7 @@ package controller;
 import model.CartItem;
 import model.Notification;
 import model.Product;
+import repository.ProductRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,24 +53,45 @@ public class CartController {
             return;
         }
 
-        double total = 0;
         for (CartItem item : cartItems) {
-            total += item.getPrice() * item.getQuantity();
+            int currentStock = ProductRepository.getProductStock(item.getProductId());
+            if (currentStock == -1) {
+                System.out.println("Product not found: " + item.getProductName());
+                return;
+            }
+            if (currentStock < item.getQuantity()) {
+                System.out.println("Insufficient stock for product: " + item.getProductName());
+                return;
+            }
         }
 
-        // Simpan pesanan ke database (opsional)
+        double total = 0;
+
+        for (CartItem item : cartItems) {
+            int currentStock = ProductRepository.getProductStock(item.getProductId());
+            boolean stockUpdated = ProductRepository.updateProductStock(item.getProductId(), currentStock - item.getQuantity());
+
+            if (!stockUpdated) {
+                System.out.println("Failed to update stock for product: " + item.getProductName());
+                return;
+            }
+
+            total += item.getPrice() * item.getQuantity();
+            System.out.println("Stock updated for product: " + item.getProductName());
+        }
+
         System.out.println("=== Checkout ===");
         System.out.println("Total amount to pay: " + total);
         System.out.println("Thank you for your purchase!");
 
         Notification notification = new Notification("Your order has been placed successfully!");
         System.out.println("NOTIFICATION: " + notification.getMessage());
-        
-        // Notifikasi untuk admin
+
         Notification adminNotification = new Notification("New order received! Total: " + total);
         System.out.println("ADMIN NOTIFICATION: " + adminNotification.getMessage());
 
-        cartItems.clear(); // Clear the cart after checkout.
+        cartItems.clear();
     }
+
 
 }

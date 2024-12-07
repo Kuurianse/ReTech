@@ -48,18 +48,6 @@ public class ProductController {
         }
         return products;
     }
-
-    public boolean updateProductStock(int productId, int newStock) {
-        String sql = "UPDATE products SET stock = ? WHERE id = ?";
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, newStock);
-            statement.setInt(2, productId);
-            return statement.executeUpdate() > 0;
-        } catch (SQLException e) {
-            System.out.println("Error updating product stock: " + e.getMessage());
-            return false;
-        }
-    }
     
     public List<Product> getProductsByCategory(int categoryId) {
         List<Product> products = new ArrayList<>();
