@@ -59,5 +59,5 @@ Periksa kembali bahwa library **MySQL Connector** sudah benar diatur di **classp
 ## 4. Menjalankan Aplikasi  
 ### Langkah-langkah:  
 1. Jalankan file `Main.java` sebagai aplikasi Java di Eclipse.  
-2. Pastikan **XAMPP** telah dinyalakan dan database yang diperlukan sudah diimpor.  
+2. Pastikan **XAMPP** telah dinyalakan dan database yang diperlukan sudah diimpor, ada di /resources.  
 3. Nikmati interaksi dengan fitur **E-Commerce** yang terhubung dengan database MySQL.  
