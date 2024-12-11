@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="database.DatabaseConnection"/>
+    <fullyQualifiedTypeName name="Factory.ElectronicsCategory"/>
+    <fullyQualifiedTypeName name="Factory.Category"/>
+    <fullyQualifiedTypeName name="model.Category"/>
+    <fullyQualifiedTypeName name="model.Order"/>
+    <fullyQualifiedTypeName name="Factory.CartItem"/>
+    <fullyQualifiedTypeName name="Factory.NotificationFactory"/>
+    <fullyQualifiedTypeName name="model.Notification"/>
+    <fullyQualifiedTypeName name="Factory.CategoryFactory"/>
+    <fullyQualifiedTypeName name="Factory.ProductFactory"/>
+    <fullyQualifiedTypeName name="model.Product"/>
+    <fullyQualifiedTypeName name="Factory.UserFactory"/>
+    <fullyQualifiedTypeName name="model.User"/>
+    <fullyQualifiedTypeName name="model.CartItem"/>
+    <fullyQualifiedTypeName name="Factory.CartItemFactory"/>
+    <fullyQualifiedTypeName name="Factory.OrderFactory"/>
+</qualifiedTypeNameHistroy>
