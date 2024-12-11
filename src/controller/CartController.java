@@ -8,6 +8,8 @@ import repository.ProductRepository;
 import java.util.ArrayList;
 import java.util.List;
 
+import Factory.CartItemFactory;
+
 public class CartController {
     private List<CartItem> cartItems;
 
@@ -24,7 +26,7 @@ public class CartController {
             }
         }
 
-        CartItem newItem = new CartItem(product.getId(), product.getName(), quantity, product.getPrice());
+        CartItem newItem = new CartItemFactory(product.getId(), product.getName(), quantity, product.getPrice()).get();
         cartItems.add(newItem);
         System.out.println("Added to cart: " + product.getName());
     }

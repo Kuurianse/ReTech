@@ -7,6 +7,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import Factory.OrderFactory;
+
 public class OrderController {
     private Connection connection;
 
@@ -21,12 +23,12 @@ public class OrderController {
             statement.setInt(1, userId);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                orders.add(new Order(
+                orders.add(new OrderFactory(
                         resultSet.getInt("id"),
                         resultSet.getInt("user_id"),
                         resultSet.getDouble("total_price"),
                         resultSet.getString("status")
-                ));
+                ).get());
             }
         } catch (SQLException e) {
             System.out.println("Error fetching order history: " + e.getMessage());

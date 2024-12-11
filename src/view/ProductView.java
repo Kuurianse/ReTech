@@ -6,6 +6,8 @@ import model.Product;
 import java.util.List;
 import java.util.Scanner;
 
+import Factory.ProductFactory;
+
 public class ProductView {
     private ProductController productController;
     private Scanner scanner;
@@ -49,7 +51,7 @@ public class ProductView {
         int stock = scanner.nextInt();
         scanner.nextLine(); // Consume newline.
 
-        Product product = new Product(name, description, price, stock);
+        Product product = new ProductFactory(name, description, price, stock).get();
         product.setCategoryId(categoryId);
 
         if (productController.addProduct(product)) {

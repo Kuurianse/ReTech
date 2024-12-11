@@ -6,6 +6,8 @@ import model.Category;
 import java.util.List;
 import java.util.Scanner;
 
+import Factory.CategoryFactory;
+
 public class CategoryView {
     private CategoryController categoryController;
     private Scanner scanner;
@@ -20,7 +22,7 @@ public class CategoryView {
         System.out.print("Category Name: ");
         String name = scanner.nextLine();
 
-        Category category = new Category(name);
+        Category category = new CategoryFactory(name).get();
         if (categoryController.addCategory(category)) {
             System.out.println("Category added successfully!");
         } else {

@@ -5,16 +5,24 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
+	
+	private static Connection instance;
     private static final String URL = "jdbc:mysql://localhost:3306/ecommerce";
     private static final String USER = "root";
-    private static final String PASSWORD = ""; // Ubah sesuai konfigurasi MySQL Anda.
+    private static final String PASSWORD = "GOATNALDO"; 
 
-    public static Connection getConnection() {
+    public static synchronized Connection getConnection() {
+    	if(instance == null) {
         try {
-            return DriverManager.getConnection(URL, USER, PASSWORD);
+            instance =  DriverManager.getConnection(URL, USER, PASSWORD);
+            return instance;
         } catch (SQLException e) {
             System.out.println("Database connection failed: " + e.getMessage());
             return null;
         }
+        
+    	}
+    	
+    	else { return instance; }
     }
 }

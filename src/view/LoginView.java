@@ -5,6 +5,8 @@ import model.User;
 
 import java.util.Scanner;
 
+import Factory.UserFactory;
+
 public class LoginView {
     private AuthController authController;
     private Scanner scanner;
@@ -40,7 +42,7 @@ public class LoginView {
         System.out.print("Password: ");
         String password = scanner.nextLine();
 
-        User user = new User(name, email, password, "customer");
+        User user = new UserFactory(name, email, password, "customer").get();
         if (authController.registerUser(user)) {
             System.out.println("Registration successful!");
         } else {
