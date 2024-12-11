@@ -10,14 +10,13 @@ import Factory.UserFactory;
 public class LoginView {
     private AuthController authController;
     private Scanner scanner;
-    private User currentUser = null; // Menyimpan pengguna yang sedang login
 
     public LoginView() {
         authController = new AuthController();
         scanner = new Scanner(System.in);
     }
 
-    public void showLoginMenu() {
+    public User showLoginMenu() {
         System.out.println("\n=== Login Menu ===");
         System.out.print("Email: ");
         String email = scanner.nextLine();
@@ -27,9 +26,10 @@ public class LoginView {
         User user = authController.loginUser(email, password);
         if (user != null) {
             System.out.println("Welcome, " + user.getName());
-            this.currentUser = user; // Menyimpan pengguna yang berhasil login
+            return user;
         } else {
             System.out.println("Invalid email or password!");
+            return null;
         }
     }
 
@@ -48,10 +48,5 @@ public class LoginView {
         } else {
             System.out.println("Registration failed!");
         }
-    }
-
-    // Getter untuk pengguna yang sedang login
-    public User getCurrentUser() {
-        return currentUser;
     }
 }

@@ -1,0 +1,19 @@
+package Factory;
+
+import model.Product;
+
+public class ProductFactory {
+
+	private Product product;
+
+	public ProductFactory(int id, String name, String description, double price, int stock, int categoryId) {
+		super();
+		this.product = new Product(id, name, description, price, stock, categoryId);
+	}
+	
+	public Product get() {
+		return this.product;
+	}
+	
+	
+}

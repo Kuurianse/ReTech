@@ -39,7 +39,8 @@ public class ProductController {
                         resultSet.getString("name"),
                         resultSet.getString("description"),
                         resultSet.getDouble("price"),
-                        resultSet.getInt("stock")
+                        resultSet.getInt("stock"),
+                        resultSet.getInt("category_id")
                 );
                 products.add(product);
             }

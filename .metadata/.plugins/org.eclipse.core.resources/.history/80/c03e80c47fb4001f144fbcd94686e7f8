@@ -1,0 +1,11 @@
+package Factory;
+
+
+
+import model.Category;
+
+public class CategoryFactory {
+
+	Category 
+	
+}
