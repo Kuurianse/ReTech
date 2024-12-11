@@ -1,0 +1,6 @@
+package Factory;
+
+public interface CategoryFactory {
+
+	Category createCategory(String id, String name);
+}
