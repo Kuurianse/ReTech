@@ -23,7 +23,7 @@ public class ProductRepository {
         } catch (SQLException e) {
             System.out.println("Failed to fetch product stock: " + e.getMessage());
         }
-        return -1; // Indikasi jika produk tidak ditemukan
+        return -1; 
     }
     
     public static boolean updateProductStock(int productId, int newStock) {

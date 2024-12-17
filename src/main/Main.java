@@ -2,19 +2,23 @@ package main;
 
 import view.CartView;
 import view.LoginView;
+import view.PaymentView;
 import view.ProductView;
 import model.User;
 
 import java.util.Scanner;
 
+import controller.CartController;
+
 public class Main {
     private static User currentUser = null;  // Menyimpan pengguna yang sedang login
     
     Scanner scanner = new Scanner(System.in);
-    
-    CartView cartView = new CartView();
+    CartController cartController = new CartController();
+    CartView cartView = new CartView(this.cartController);
     LoginView loginView = new LoginView();
     ProductView productView = new ProductView();
+    PaymentView paymentView = new PaymentView(this.cartController);
     
     public void customerMenu() {
     	while(true) {
@@ -49,7 +53,7 @@ public class Main {
                 cartView.viewCart();
                 break;
             case 6:
-                cartView.checkout();
+                paymentView.displayCheckout();
                 break;
             case 7:
                 System.out.println("Goodbye!");
@@ -57,7 +61,7 @@ public class Main {
                 break;
             default:
                 System.out.println("Invalid choice!");
-                break;
+                continue;
             }
     	}
     }

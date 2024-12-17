@@ -16,4 +16,12 @@
     <fullyQualifiedTypeName name="model.CartItem"/>
     <fullyQualifiedTypeName name="Factory.CartItemFactory"/>
     <fullyQualifiedTypeName name="Factory.OrderFactory"/>
+    <fullyQualifiedTypeName name="java.lang.Thread"/>
+    <fullyQualifiedTypeName name="model.Strategy.PaymentStrategy"/>
+    <fullyQualifiedTypeName name="model.Strategy.CODStrategy"/>
+    <fullyQualifiedTypeName name="controller.PaymentController"/>
+    <fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+    <fullyQualifiedTypeName name="view.PaymentView"/>
+    <fullyQualifiedTypeName name="controller.CartController"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
 </qualifiedTypeNameHistroy>

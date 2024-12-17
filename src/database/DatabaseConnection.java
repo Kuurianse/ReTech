@@ -9,20 +9,16 @@ public class DatabaseConnection {
 	private static Connection instance;
     private static final String URL = "jdbc:mysql://localhost:3306/ecommerce";
     private static final String USER = "root";
-    private static final String PASSWORD = "GOATNALDO"; 
+    private static final String PASSWORD = ""; 
 
     public static synchronized Connection getConnection() {
-    	if(instance == null) {
         try {
-            instance =  DriverManager.getConnection(URL, USER, PASSWORD);
-            return instance;
+            if (instance == null || instance.isClosed()) {
+                instance = DriverManager.getConnection(URL, USER, PASSWORD);
+            }
         } catch (SQLException e) {
             System.out.println("Database connection failed: " + e.getMessage());
-            return null;
         }
-        
-    	}
-    	
-    	else { return instance; }
+        return instance;
     }
 }

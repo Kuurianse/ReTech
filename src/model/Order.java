@@ -1,20 +1,18 @@
 package model;
 
 public class Order {
-    private int id;             // ID Pesanan
-    private int userId;         // ID Pengguna yang melakukan pesanan
-    private double totalPrice;  // Total harga pesanan
-    private String status;      // Status pesanan (misalnya, pending, completed)
+    private int id;             
+    private int userId;        
+    private double totalPrice;  
+    private String status;     
 
-    // Constructor dengan semua parameter
     public Order(int id, int userId, double totalPrice, String status) {
         this.id = id;
         this.userId = userId;
         this.totalPrice = totalPrice;
         this.status = status;
     }
-
-    // Constructor tanpa ID (digunakan untuk membuat pesanan baru)
+  
     public Order(int userId, double totalPrice, String status) {
         this.userId = userId;
         this.totalPrice = totalPrice;

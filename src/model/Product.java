@@ -36,7 +36,7 @@ public class Product {
         this.price = price;
         this.stock = stock;
     }
-    
+//    
     public String getCategoryName() {
     	return CategoryRepository.findCategory(categoryId);
     }

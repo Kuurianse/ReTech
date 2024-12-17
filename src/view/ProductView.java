@@ -27,8 +27,8 @@ public class ProductView {
                 System.out.println("ID: " + product.getId() +
                         " | Name: " + product.getName() +
                         " | Price: " + product.getPrice() +
-                        " | Stock: " + product.getStock() + 
-                        " | Category: " + product.getCategoryName());
+                        " | Stock: " + product.getStock() 
+                       );
             }
         }
     }
@@ -64,7 +64,7 @@ public class ProductView {
 
     public void displayProductsByCategory() {
         CategoryView categoryView = new CategoryView();
-        categoryView.displayCategories();
+        if(!categoryView.displayCategories()) { return ; }
 
         System.out.print("Enter category ID to filter products: ");
         int categoryId = scanner.nextInt();
@@ -79,7 +79,7 @@ public class ProductView {
                 System.out.println("ID: " + product.getId() +
                         " | Name: " + product.getName() +
                         " | Price: " + product.getPrice() +
-                        " | Stock: " + product.getStock());
+                        " | Stock: " + product.getStock() + product.getCategoryName() );
             }
         }
         System.out.println("");

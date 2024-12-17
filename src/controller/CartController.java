@@ -32,7 +32,7 @@ public class CartController {
     }
 
     public void viewCart() {
-        if (cartItems.isEmpty()) {
+        if (this.cartItems.isEmpty()) {
             System.out.println("Your cart is empty.");
             return;
         }
@@ -49,50 +49,53 @@ public class CartController {
         System.out.println("Total: " + total);
     }
 
-    public void checkout() {
-        if (cartItems.isEmpty()) {
+    public boolean checkCart() {
+        if (this.cartItems.isEmpty()) {
             System.out.println("Your cart is empty. Add some products first!");
-            return;
+            return false ;
         }
 
         for (CartItem item : cartItems) {
             int currentStock = ProductRepository.getProductStock(item.getProductId());
             if (currentStock == -1) {
                 System.out.println("Product not found: " + item.getProductName());
-                return;
+                return false;
             }
             if (currentStock < item.getQuantity()) {
                 System.out.println("Insufficient stock for product: " + item.getProductName());
-                return;
+                return false;
             }
         }
 
-        double total = 0;
+        return true;
+    }
+    
+    public double getCartTotal() {
+    	  double total = 0;
 
-        for (CartItem item : cartItems) {
-            int currentStock = ProductRepository.getProductStock(item.getProductId());
-            boolean stockUpdated = ProductRepository.updateProductStock(item.getProductId(), currentStock - item.getQuantity());
+          for (CartItem item : cartItems) {
+ //             int currentStock = ProductRepository.getProductStock(item.getProductId());
+//              boolean stockUpdated = ProductRepository.updateProductStock(item.getProductId(), currentStock - item.getQuantity());
+              total += item.getPrice() * item.getQuantity();
+//              System.out.println("Stock updated for product: " + item.getProductName());
+          }
 
-            if (!stockUpdated) {
-                System.out.println("Failed to update stock for product: " + item.getProductName());
-                return;
-            }
-
-            total += item.getPrice() * item.getQuantity();
-            System.out.println("Stock updated for product: " + item.getProductName());
-        }
-
-        System.out.println("=== Checkout ===");
-        System.out.println("Total amount to pay: " + total);
-        System.out.println("Thank you for your purchase!");
-
-        Notification notification = new Notification("Your order has been placed successfully!");
-        System.out.println("NOTIFICATION: " + notification.getMessage());
-
-        Notification adminNotification = new Notification("New order received! Total: " + total);
-        System.out.println("ADMIN NOTIFICATION: " + adminNotification.getMessage());
-
-        cartItems.clear();
+          return total;
+       
+    }
+    
+    public boolean clearCartItems() {
+    	for (CartItem item : this.cartItems) {
+    	int currentStock = ProductRepository.getProductStock(item.getProductId());
+    	boolean stockUpdated = ProductRepository.updateProductStock(item.getProductId(), currentStock - item.getQuantity());
+    	  if (!stockUpdated) {
+              System.out.println("Product Purchasing Failed: " + item.getProductName());
+              return false;
+          }
+    	}
+    	// if updating product stock inside database successful
+        this.cartItems.clear();
+        return true;
     }
 
 

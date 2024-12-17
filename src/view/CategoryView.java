@@ -30,15 +30,17 @@ public class CategoryView {
         }
     }
 
-    public void displayCategories() {
+    public boolean displayCategories() {
         System.out.println("=== Categories ===");
         List<Category> categories = categoryController.getAllCategories();
         if (categories.isEmpty()) {
             System.out.println("No categories available.");
+            return false;
         } else {
             for (Category category : categories) {
                 System.out.println("ID: " + category.getId() + " | Name: " + category.getName());
             }
         }
+        return true;
     }
 }

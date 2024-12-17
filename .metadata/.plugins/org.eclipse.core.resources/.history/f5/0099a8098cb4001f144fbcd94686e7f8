@@ -1,6 +1,0 @@
-package Factory;
-
-public interface Category {
-
-	String getId();
-}

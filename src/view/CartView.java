@@ -12,8 +12,8 @@ public class CartView {
     private ProductController productController;
     private Scanner scanner;
 
-    public CartView() {
-        cartController = new CartController();
+    public CartView(CartController controller) {
+        cartController = controller;
         productController = new ProductController();
         scanner = new Scanner(System.in);
     }
@@ -55,7 +55,13 @@ public class CartView {
         cartController.viewCart();
     }
 
-    public void checkout() {
-        cartController.checkout();
-    }
+//    public void getCartTotal() {
+//        cartController.getCartTotal();
+//    }
+//    public void clearCartItems() {
+//    	cartController.clearCartItems();
+//    }
+//    public void checkCart() {
+//    	cartController.checkCart();
+//    }
 }
